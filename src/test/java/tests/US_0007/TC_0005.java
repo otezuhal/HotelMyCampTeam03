@@ -25,8 +25,15 @@ public class TC_0005 {
         //Hotel Rooms butonunu tiklar
         hotelRoomsPage.hotelRoomsLinki.click();
         //ilk oda icin DETAILS butonuna tiklanir
+        hotelRoomsPage.hotelRoomListDetailButton.click();
         //General Data kismindaki bilgiler degistirilir
+        hotelRoomsPage.dataUpdate();
         //SAVE butonuna tiklanir
         //HotelRoom was updated successfully yazisi gorulur
+
+
+
+
+
     }
 }

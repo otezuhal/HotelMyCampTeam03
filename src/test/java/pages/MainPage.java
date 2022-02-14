@@ -70,17 +70,25 @@ public class MainPage {
 
 
 
-
-
-
+    //Home Page---->Log-in
     @FindBy(xpath="//a[text()='Log in']")
     public WebElement firstLoginLinki;
+
+
+    //Home Page---->Log-in------>Username TextBox
     @FindBy(id="UserName")
     public WebElement firstUserNameBox;
+
+
+    //Home Page---->Log-in------>Password TextBox
     @FindBy(id="Password")
     public WebElement firstPasswordBox;
+
+
+    //Home Page---->Log-in------>Log-in Button
     @FindBy(id="btnSubmit")
     public WebElement secondLoginButonu;
+
     public void managerHotelMyCampGiris (){
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         firstLoginLinki.click();
@@ -90,5 +98,7 @@ public class MainPage {
         firstPasswordBox.sendKeys(ConfigReader.getProperty("HMCManagerValidPassword"));
         ReusableMethods.waitFor(1);
         secondLoginButonu.click();
+
     }
+
 }

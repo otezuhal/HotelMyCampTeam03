@@ -1,6 +1,9 @@
 package pages;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -30,6 +33,8 @@ public class HotelRoomsPage {
 
 
     //US_0007 Loceted
+
+    //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms
 
     @FindBy(xpath = "(//tr)[3]//td")
     public List<WebElement> listedekiILkHotelBilgileriListesi;
@@ -71,6 +76,52 @@ public class HotelRoomsPage {
     public WebElement hotelRoomListChecked;
 
 
+    //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms-->Details
+
+    @FindBy(xpath = "//select[@id='IDHotel']")
+    public WebElement hotelRoomsDetailsHotelbox;
+
+    @FindBy(xpath = "//select[@name='IDHotel']//option")
+    public  List<WebElement> hotelRoomsDetailsHotelboxHotelsList;
+
+    @FindBy(xpath = "//select[@name='IDGroupRoomType']")
+    public WebElement hotelRoomsDetailsRoomTypeBox;
+
+    @FindBy(xpath = "//select[@name='IDGroupRoomType']//option")
+    public WebElement hotelRoomsDetailsRoomTypeBoxTpyeList;
+
+    //(//li[@class='credit ui-draggable ui-draggable-handle'])[1]
+
+    @FindBy(xpath = "//button[@id='btnDelete']")
+    public  WebElement hotelRoomsDetailsDeleteButton;
+
+    @FindBy(xpath = "//button[text()='OK']")
+    public  WebElement hotelRoomsDetailsDeleteButtondanSonrakiOkButton;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement basariliSilindiTestYazisi;
+
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement hotelRoomsDetailsCodeBox;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void listeEkranindaHotelRoomArama() {
 
         hotelRoomsLinkiListeIdBox.sendKeys(listedekiILkHotelBilgileriListesi.get(0).getText());
@@ -83,8 +134,12 @@ public class HotelRoomsPage {
         Select select = new Select(hotelRoomListIsAvaibleBox);
         if (hotelRoomListChecked.isSelected()) {
             select.selectByVisibleText("True");
+            hotelRoomListSearchButton.click();
         } else {
             select.selectByVisibleText("False");
+            hotelRoomListSearchButton.click();
+
+
         }
     }
 
@@ -114,5 +169,16 @@ public class HotelRoomsPage {
         public List<WebElement> selectHotelListesi;
 
 
+    public void dataUpdate() {
+        Select select=new Select(hotelRoomsDetailsHotelbox);
+        Faker faker=new Faker();
+        select.selectByIndex(faker.random().nextInt(0,hotelRoomsDetailsHotelboxHotelsList.size()-1));
+        Actions actions=new Actions(Driver.getDriver());
+        actions.click(hotelRoomListCodeBox).sendKeys(faker.code().ean8()).sendKeys(Keys.TAB).sendKeys(faker.name().name())
+                .sendKeys(Keys.TAB).sendKeys(faker.address().city()).sendKeys(Keys.TAB).keyDown(Keys.BACK_SPACE).perform();
+
+
+
     }
+}
 

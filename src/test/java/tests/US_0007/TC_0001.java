@@ -22,9 +22,9 @@ public class TC_0001 {
       //  Hotel Management linkine tiklar
         hotelRoomsPage.hotelManagementLinki.click();
         //Hotel Rooms butonu gorulebilir olmalidir
-      softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isDisplayed());
+      softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isDisplayed(),"hotelRooms butonu gorulebilirlik testi Failed");
         //Hotel Rooms butonu secilebilir olmalidir
-       softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isSelected());
+       softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isSelected(),"hotelRomms Butonu secilebilirlik Testi Failed");
         softAssert.assertAll();
         Driver.closeDriver();
 

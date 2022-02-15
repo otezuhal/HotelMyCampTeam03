@@ -36,7 +36,7 @@ public class TC_0003 {
         Assert.assertTrue(hotelRoomsPage.hotelRoomListSearchButton.isEnabled());
         hotelRoomsPage.hotelRoomListSearchButton.click();
         //Aranan odanin bilgileri ekranina gidilmeli
-        softAssert.assertFalse(Driver.getDriver().getTitle().equals(title));
+        softAssert.assertFalse(Driver.getDriver().getTitle().equals(title),"Aranan odaya gecis testi Failed");
         ReusableMethods.getScreenshot("hotelRoomsSearchButonClicken");
         Driver.closeDriver();
         softAssert.assertAll();

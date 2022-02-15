@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.List;
 
@@ -24,9 +25,10 @@ public class HotelRoomsPage {
     @FindBy(xpath = "//a[@id='menuHotels']")
     public WebElement hotelManagementLinki;
 
-
-    @FindBy(xpath = "(//i[@class='icon-calendar'])[3]")
+    // (//i[@class='icon-calendar'])[3]  Bu locate ile element gorulmuyor ve erisilmiyor
+    @FindBy(xpath = "//a[@href='/admin/HotelRoomAdmin']")// bu locae ile element gorulmuyor ama erisilebiliyor
     public WebElement hotelRoomsLinki;
+
 
     @FindBy(xpath = "//div[@class='caption']")
     public WebElement listOfHotelRoomsYazisi;
@@ -76,7 +78,7 @@ public class HotelRoomsPage {
     public WebElement hotelRoomListChecked;
 
 
-    //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms-->Details
+    //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms-->(Edit Hotelroom)Details
 
     @FindBy(xpath = "//select[@id='IDHotel']")
     public WebElement hotelRoomsDetailsHotelbox;
@@ -105,6 +107,8 @@ public class HotelRoomsPage {
     public WebElement hotelRoomsDetailsCodeBox;
 
 
+    @FindBy(xpath = "//input[@id='Price']")
+    public WebElement hotelRoomsDetailsPriceBox;
 
 
 
@@ -174,8 +178,9 @@ public class HotelRoomsPage {
         Faker faker=new Faker();
         select.selectByIndex(faker.random().nextInt(0,hotelRoomsDetailsHotelboxHotelsList.size()-1));
         Actions actions=new Actions(Driver.getDriver());
-        actions.click(hotelRoomListCodeBox).sendKeys(faker.code().ean8()).sendKeys(Keys.TAB).sendKeys(faker.name().name())
-                .sendKeys(Keys.TAB).sendKeys(faker.address().city()).sendKeys(Keys.TAB).keyDown(Keys.BACK_SPACE).perform();
+        actions.sendKeys(Keys.TAB).sendKeys("555").sendKeys(Keys.TAB)
+                .sendKeys(faker.name().name()).sendKeys(Keys.TAB).sendKeys(faker.address().city())
+                .sendKeys(Keys.TAB).sendKeys(faker.letterify("Deneme")).perform();
 
 
 

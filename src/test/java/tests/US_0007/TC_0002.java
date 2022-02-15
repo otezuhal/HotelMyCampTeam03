@@ -5,6 +5,7 @@ import org.testng.asserts.SoftAssert;
 import pages.HotelRoomsPage;
 import pages.MainPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC_0002 {
 
@@ -14,7 +15,7 @@ public class TC_0002 {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void roomButtonTest() {
+    public void hotelListesiGorunurlukTesti() {
 
         //Yonetici url ye gider
         //Sag ustteki Login butonuna tiklar
@@ -26,7 +27,9 @@ public class TC_0002 {
         hotelRoomsPage.hotelRoomsLinki.click();
         //LIST OF HOTELROOMS yazisini gorur
         softAssert.assertTrue(hotelRoomsPage.listOfHotelRoomsYazisi.isDisplayed());
+
         Driver.closeDriver();
+        ReusableMethods.waitFor(3);
         softAssert.assertAll();
 
 

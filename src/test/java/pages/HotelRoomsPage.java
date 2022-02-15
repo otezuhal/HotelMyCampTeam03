@@ -1,6 +1,7 @@
 package pages;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -106,9 +107,28 @@ public class HotelRoomsPage {
     @FindBy(xpath = "//input[@id='Code']")
     public WebElement hotelRoomsDetailsCodeBox;
 
-
     @FindBy(xpath = "//input[@id='Price']")
     public WebElement hotelRoomsDetailsPriceBox;
+
+    @FindBy(id = "IDGroupRoomType")
+    public WebElement hotelRoomsDetailsRoomType;
+
+    @FindBy(xpath = "(//button)[4]")
+    public WebElement hotelRoomsDetailsSaveButton;
+
+    @FindBy(xpath = "//div[.='HotelRoom was updated successfully']")//Bu locate ilede isDisplay false dondu
+    public WebElement hotelRoomsDetailsSuccessfullyUpdateWort;
+
+    @FindBy(className = "bootbox-body")// bu locate ilede isDisplay false dondu
+    public  WebElement hotelRoomsDetailsSuccefullWort;
+
+    @FindBy(xpath = "//button[.='OK']")
+    public WebElement hotelRommsDetailsOkButton;
+
+
+
+
+
 
 
 
@@ -181,10 +201,24 @@ public class HotelRoomsPage {
         actions.sendKeys(Keys.TAB).sendKeys("555").sendKeys(Keys.TAB)
                 .sendKeys(faker.name().name()).sendKeys(Keys.TAB).sendKeys(faker.address().city())
                 .sendKeys(Keys.TAB).sendKeys(faker.letterify("Deneme"))
-                .sendKeys(Keys.PAGE_DOWN).perform();
+                .sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.TAB).sendKeys("600.000")
+                .perform();
+
+        Select select1=new Select(hotelRoomsDetailsRoomType);
+        select1.selectByIndex(faker.random().nextInt(0,8));
+        actions.sendKeys(Keys.TAB).sendKeys("2").sendKeys(Keys.TAB).sendKeys("2").sendKeys(Keys.TAB)
+                .click().perform();
+
+
+
+    //    for (int i = 1; i <=6 ; i++) {
+      //  WebElement priceButtons=Driver.getDriver().findElement(By.xpath("//  (//a[@class='label label-success'])["+i+"]")) ;
+        //    actions.dragAndDrop(priceButtons,hotelRoomsDetailsPriceBox).perform();
+
+        }
 
 
 
     }
-}
+
 

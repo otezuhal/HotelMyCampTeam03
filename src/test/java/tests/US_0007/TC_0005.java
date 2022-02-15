@@ -1,9 +1,12 @@
 package tests.US_0007;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HotelRoomsPage;
 import pages.MainPage;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC_0005 {
 
@@ -13,7 +16,7 @@ public class TC_0005 {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void roomButtonTest() {
+    public void roomUpdateTesti() {
 
         //Yonetici url ye gider
         //Sag ustteki Login butonuna tiklar
@@ -29,7 +32,14 @@ public class TC_0005 {
         //General Data kismindaki bilgiler degistirilir
         hotelRoomsPage.dataUpdate();
         //SAVE butonuna tiklanir
+        hotelRoomsPage.hotelRoomsDetailsSaveButton.click();
         //HotelRoom was updated successfully yazisi gorulur
+        softAssert.assertTrue(hotelRoomsPage.hotelRoomsDetailsSuccefullWort.isDisplayed(),"HotelRoom was updated successfully gorulebilir degil");
+        ReusableMethods.waitFor(3);
+        hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
+        ReusableMethods.waitFor(3);
+        Driver.closeDriver();
+        softAssert.assertAll();
 
 
 

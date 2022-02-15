@@ -19,7 +19,7 @@ public class TC_0003 {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void roomButtonTest() throws IOException {
+    public void odaAramaTesti() throws IOException {
 
         //Yonetici url ye gider
         //Sag ustteki Login butonuna tiklar
@@ -39,6 +39,7 @@ public class TC_0003 {
         softAssert.assertFalse(Driver.getDriver().getTitle().equals(title),"Aranan odaya gecis testi Failed");
         ReusableMethods.getScreenshot("hotelRoomsSearchButonClicken");
         Driver.closeDriver();
+        ReusableMethods.waitFor(3);
         softAssert.assertAll();
 
 

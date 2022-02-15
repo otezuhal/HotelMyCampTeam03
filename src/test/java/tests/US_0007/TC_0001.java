@@ -5,6 +5,7 @@ import org.testng.asserts.SoftAssert;
 import pages.HotelRoomsPage;
 import pages.MainPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TC_0001 {
 
@@ -25,7 +26,9 @@ public class TC_0001 {
       softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isDisplayed(),"hotelRooms butonu gorulebilirlik testi Failed");
         //Hotel Rooms butonu erisileblir olmalidir
        softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isEnabled(),"hotelRomms Butonu secilebilirlik Testi Failed");
+
         Driver.closeDriver();
+        ReusableMethods.waitFor(3);
         softAssert.assertAll();
 
 

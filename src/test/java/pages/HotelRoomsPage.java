@@ -180,7 +180,8 @@ public class HotelRoomsPage {
         Actions actions=new Actions(Driver.getDriver());
         actions.sendKeys(Keys.TAB).sendKeys("555").sendKeys(Keys.TAB)
                 .sendKeys(faker.name().name()).sendKeys(Keys.TAB).sendKeys(faker.address().city())
-                .sendKeys(Keys.TAB).sendKeys(faker.letterify("Deneme")).perform();
+                .sendKeys(Keys.TAB).sendKeys(faker.letterify("Deneme"))
+                .sendKeys(Keys.PAGE_DOWN).perform();
 
 
 

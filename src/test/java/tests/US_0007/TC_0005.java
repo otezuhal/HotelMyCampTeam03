@@ -35,6 +35,9 @@ public class TC_0005 {
         hotelRoomsPage.hotelRoomsDetailsSaveButton.click();
         //HotelRoom was updated successfully yazisi gorulur
         softAssert.assertTrue(hotelRoomsPage.hotelRoomsDetailsSuccefullWort.isDisplayed(),"HotelRoom was updated successfully gorulebilir degil");
+       String actualResult=hotelRoomsPage.basariliSilindiTestYazisi.getText();
+       String expectedresult="HotelRoom was updated successfully";
+       softAssert.assertTrue(actualResult.contains(expectedresult),"actualResult HotelRoom was updated successfully icermiyor");
         ReusableMethods.waitFor(3);
         hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
         ReusableMethods.waitFor(3);

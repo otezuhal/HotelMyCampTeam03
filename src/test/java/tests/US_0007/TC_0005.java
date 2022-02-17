@@ -38,11 +38,13 @@ public class TC_0005 {
        String actualResult=hotelRoomsPage.basariliSilindiTestYazisi.getText();
        String expectedresult="HotelRoom was updated successfully";
        softAssert.assertTrue(actualResult.contains(expectedresult),"actualResult HotelRoom was updated successfully icermiyor");
+       //normalde bu yazi goruluyor ama otomasyonda failed cikiyor
         ReusableMethods.waitFor(3);
         hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
         ReusableMethods.waitFor(3);
         Driver.closeDriver();
         softAssert.assertAll();
+        ReusableMethods.waitFor(3);
 
 
 

@@ -24,13 +24,13 @@ public class TC_0001 {
         hotelRoomsPage.hotelManagementLinki.click();
         //Hotel Rooms butonu gorulebilir olmalidir
       softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isDisplayed(),"hotelRooms butonu gorulebilirlik testi Failed");
+      //normalde bu Webelment goruluyor ama otomasyonda failed cikiyor
         //Hotel Rooms butonu erisileblir olmalidir
        softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isEnabled(),"hotelRomms Butonu secilebilirlik Testi Failed");
-
+       ReusableMethods.waitFor(3);
+        softAssert.assertAll();
         Driver.closeDriver();
         ReusableMethods.waitFor(3);
-        softAssert.assertAll();
-
 
     }
 

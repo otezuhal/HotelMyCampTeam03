@@ -38,11 +38,11 @@ public class TC_0003 {
         //Aranan odanin bilgileri ekranina gidilmeli
         softAssert.assertFalse(Driver.getDriver().getTitle().equals(title),"Aranan odaya gecis testi Failed");
         ReusableMethods.getScreenshot("hotelRoomsSearchButonClicken");
-        Driver.closeDriver();
         ReusableMethods.waitFor(3);
         softAssert.assertAll();
+        Driver.closeDriver();
+        ReusableMethods.waitFor(3);
 
-
-
+        // Bu test manuelde failed
     }
 }

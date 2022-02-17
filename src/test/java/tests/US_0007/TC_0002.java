@@ -27,11 +27,10 @@ public class TC_0002 {
         hotelRoomsPage.hotelRoomsLinki.click();
         //LIST OF HOTELROOMS yazisini gorur
         softAssert.assertTrue(hotelRoomsPage.listOfHotelRoomsYazisi.isDisplayed());
-
-        Driver.closeDriver();
         ReusableMethods.waitFor(3);
         softAssert.assertAll();
-
+        Driver.closeDriver();
+        ReusableMethods.waitFor(3);
 
 
 

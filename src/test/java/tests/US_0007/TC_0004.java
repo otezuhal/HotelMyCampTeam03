@@ -34,8 +34,11 @@ public class TC_0004 {
         softAssert.assertTrue(hotelRoomsPage.basariliSilindiTestYazisi
                 .getText().contains("hotel has been deleted successfully"),"Oda silme islemi testi Failed");
         Driver.closeDriver();
-        ReusableMethods.waitFor(3);
         softAssert.assertAll();
+        ReusableMethods.waitFor(3);
+
+        //BU test manueldede failed
+
 
 
     }

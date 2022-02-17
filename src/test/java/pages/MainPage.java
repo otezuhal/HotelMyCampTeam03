@@ -64,12 +64,6 @@ public class MainPage {
 
 
 
-
-
-
-
-
-
     //Home Page---->Log-in
     @FindBy(xpath="//a[text()='Log in']")
     public WebElement firstLoginLinki;
@@ -91,6 +85,7 @@ public class MainPage {
 
     public void managerHotelMyCampGiris (){
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+        ReusableMethods.waitForClickablility(firstLoginLinki,15);
         firstLoginLinki.click();
         ReusableMethods.waitFor(1);
         firstUserNameBox.sendKeys(ConfigReader.getProperty("HMCManagerValidUsername"));

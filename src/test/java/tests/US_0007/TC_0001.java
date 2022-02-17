@@ -23,6 +23,7 @@ public class TC_0001 {
       //  Hotel Management linkine tiklar
         hotelRoomsPage.hotelManagementLinki.click();
         //Hotel Rooms butonu gorulebilir olmalidir
+        ReusableMethods.waitFor(3);
       softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isDisplayed(),"hotelRooms butonu gorulebilirlik testi Failed");
       //normalde bu Webelment goruluyor ama otomasyonda failed cikiyor
         //Hotel Rooms butonu erisileblir olmalidir

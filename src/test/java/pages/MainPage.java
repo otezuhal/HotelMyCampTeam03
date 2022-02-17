@@ -1,7 +1,9 @@
 package pages;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -85,11 +87,13 @@ public class MainPage {
 
     public void managerHotelMyCampGiris (){
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
-        ReusableMethods.waitForClickablility(firstLoginLinki,15);
+       ReusableMethods.waitFor(3);
         firstLoginLinki.click();
         ReusableMethods.waitFor(1);
+        firstUserNameBox.clear();
         firstUserNameBox.sendKeys(ConfigReader.getProperty("HMCManagerValidUsername"));
         ReusableMethods.waitFor(1);
+        firstPasswordBox.clear();
         firstPasswordBox.sendKeys(ConfigReader.getProperty("HMCManagerValidPassword"));
         ReusableMethods.waitFor(1);
         secondLoginButonu.click();

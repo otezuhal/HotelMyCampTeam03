@@ -116,8 +116,9 @@ public class HotelRoomsPage {
     @FindBy(xpath = "(//button)[4]")
     public WebElement hotelRoomsDetailsSaveButton;
 
-    @FindBy(xpath = "//div[.='HotelRoom was updated successfully']")//Bu locate ilede isDisplay false dondu
+    @FindBy(xpath = "//div[@class='bootbox-body']")//Bu locate ilede isDisplay false dondu
     public WebElement hotelRoomsDetailsSuccessfullyUpdateWort;
+    // div[.='HotelRoom was updated successfully']  bu locate ile de olmadi
 
     @FindBy(className = "bootbox-body")// bu locate ilede isDisplay false dondu
     public  WebElement hotelRoomsDetailsSuccefullWort;
@@ -126,7 +127,11 @@ public class HotelRoomsPage {
     public WebElement hotelRommsDetailsOkButton;
 
 
+    @FindBy(xpath = "//a[@class='dropdown-toggle']")
+    public WebElement managerLink;
 
+    @FindBy(xpath = "//i[@class='icon-key']")
+    public WebElement logOutButton;
 
 
 
@@ -194,31 +199,30 @@ public class HotelRoomsPage {
 
 
     public void dataUpdate() {
-        Select select=new Select(hotelRoomsDetailsHotelbox);
-        Faker faker=new Faker();
-        select.selectByIndex(faker.random().nextInt(0,hotelRoomsDetailsHotelboxHotelsList.size()-1));
-        Actions actions=new Actions(Driver.getDriver());
+        Select select = new Select(hotelRoomsDetailsHotelbox);
+        Faker faker = new Faker();
+        select.selectByIndex(faker.random().nextInt(0, hotelRoomsDetailsHotelboxHotelsList.size() - 1));
+        Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.TAB).sendKeys("555").sendKeys(Keys.TAB)
                 .sendKeys(faker.name().name()).sendKeys(Keys.TAB).sendKeys(faker.address().city())
                 .sendKeys(Keys.TAB).sendKeys(faker.letterify("Deneme"))
-                .sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.TAB).sendKeys("600.000")
-                .perform();
+                .sendKeys(Keys.PAGE_DOWN).perform();
+        ReusableMethods.waitFor(3);
+        for (int i = 1; i <= 6; i++) {
+            WebElement priceButtons = Driver.getDriver().findElement(By.xpath("(//a[@class='label label-success'])[" + i + "]"));
+            actions.dragAndDrop(priceButtons, hotelRoomsDetailsPriceBox).build().perform();
 
-        Select select1=new Select(hotelRoomsDetailsRoomType);
-        select1.selectByIndex(faker.random().nextInt(0,8));
+        }
+
+        Select select1 = new Select(hotelRoomsDetailsRoomType);
+        select1.selectByIndex(faker.random().nextInt(0, 8));
         actions.sendKeys(Keys.TAB).sendKeys("2").sendKeys(Keys.TAB).sendKeys("2").sendKeys(Keys.TAB)
                 .click().perform();
 
 
 
-    //    for (int i = 1; i <=6 ; i++) {
-      //  WebElement priceButtons=Driver.getDriver().findElement(By.xpath("//  (//a[@class='label label-success'])["+i+"]")) ;
-        //    actions.dragAndDrop(priceButtons,hotelRoomsDetailsPriceBox).perform();
-
-        }
 
 
-
-    }
+    }}
 
 

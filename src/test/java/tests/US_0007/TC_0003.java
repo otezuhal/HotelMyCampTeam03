@@ -1,6 +1,7 @@
 package tests.US_0007;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -46,12 +47,16 @@ public class TC_0003 extends TestBaseRapor {
         ReusableMethods.getScreenshot("hotelRoomsSearchButonClicken");
         ReusableMethods.waitFor(3);
 
-        softAssert.assertAll();
 
-        Driver.closeDriver();
+
+      //  Driver.closeDriver();
         ReusableMethods.waitFor(3);
 
         // Bu test manuelde failed
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        softAssert.assertAll();
+
     }
 
 

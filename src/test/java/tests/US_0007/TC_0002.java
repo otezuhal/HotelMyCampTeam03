@@ -1,5 +1,6 @@
 package tests.US_0007;
 
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -37,11 +38,15 @@ public class TC_0002 extends TestBaseRapor {
         extentTest.pass("Liste gorunurlugu test edildi");
         ReusableMethods.getScreenshot("RoomsLIst Gorunurluk");
         ReusableMethods.waitFor(3);
-        softAssert.assertAll();
+
       //  Select select=new Select(hotelRoomsPage.managerLink);
       //  select.selectByIndex(0);
-        Driver.closeDriver();
+      //  Driver.closeDriver();
         ReusableMethods.waitFor(3);
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        softAssert.assertAll();
+
 
 
 

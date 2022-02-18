@@ -85,6 +85,8 @@ public class MainPage {
     @FindBy(id="btnSubmit")
     public WebElement secondLoginButonu;
 
+    @FindBy(xpath = "//a[.='Log out']")
+    public WebElement logOutLink;
     public void managerHotelMyCampGiris (){
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
        ReusableMethods.waitFor(3);

@@ -1,5 +1,6 @@
 package tests.US_0007;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HotelRoomsPage;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 public class TC_0004 extends TestBaseRapor {
 
-
+    Actions actions;
     MainPage mainPage = new MainPage();
     HotelRoomsPage hotelRoomsPage = new HotelRoomsPage();
     SoftAssert softAssert = new SoftAssert();
@@ -42,13 +43,26 @@ public class TC_0004 extends TestBaseRapor {
         softAssert.assertTrue(hotelRoomsPage.basariliSilindiTestYazisi
                 .getText().contains("hotel has been deleted successfully"),"Oda silme islemi testi Failed");
        extentTest.fail("oda silme islemi failed");
-       ReusableMethods.getScreenshot("Oda silme islemi");
-        Driver.closeDriver();
-        softAssert.assertAll();
+
+       //  ReusableMethods.getScreenshot("Oda silme islemi");
+      //  Driver.closeDriver();
+        hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
+        ReusableMethods.waitFor(3);
+        actions=new Actions(Driver.getDriver());
+
+
+
+     actions.doubleClick(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
+       actions.click(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
+        actions.click(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
+
         ReusableMethods.waitFor(3);
 
         //BU test manueldede failed
 
+     actions=new Actions(Driver.getDriver());
+        actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        softAssert.assertAll();
 
 
     }

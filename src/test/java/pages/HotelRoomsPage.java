@@ -123,8 +123,12 @@ public class HotelRoomsPage {
     @FindBy(className = "bootbox-body")// bu locate ilede isDisplay false dondu
     public  WebElement hotelRoomsDetailsSuccefullWort;
 
-    @FindBy(xpath = "//button[.='OK']")
+    @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement hotelRommsDetailsOkButton;
+
+    @FindBy(xpath = "//button[text()='×']")
+    public  WebElement xButton;
+
 
 
     @FindBy(xpath = "//a[@class='dropdown-toggle']")

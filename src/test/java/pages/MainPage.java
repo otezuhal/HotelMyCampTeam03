@@ -52,6 +52,36 @@ public class MainPage {
     @FindBy(xpath = "(//th[@class='next'])[1]")
     public WebElement mainPageCheckInDateOutputNext;
 
+    @FindBy (xpath = "//select[@name='IDRoomType']")
+    public WebElement idHotelRoomTypeBox1;
+
+    @FindBy(xpath = "//select[@name='AdultCount']")
+    public  WebElement adultCountBox1;
+
+    @FindBy(xpath = "//input[@value='Check Availability']")
+    public WebElement checkAvailabilityButton;
+
+
+    // Check Avibility Page
+    @FindBy(xpath = "//input[@id='checkin_date']")
+    public WebElement checkInDateBox2;
+
+    @FindBy(xpath = "//input[@id='checkout_date']")
+    public WebElement checkOutDateBox2;
+
+    @FindBy(xpath = "//select[@id='IDRoomType']")
+    public WebElement idHotelRoomTypeBox2;
+
+    @FindBy(xpath = "//select[@id='AdultCount']")
+    public WebElement adultCountBox2;
+
+
+
+
+
+
+
+
     //Room Box
 
     @FindBy(id = "IDRoomType")

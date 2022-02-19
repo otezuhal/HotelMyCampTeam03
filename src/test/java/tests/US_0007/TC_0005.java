@@ -54,7 +54,6 @@ public class TC_0005 extends TestBaseRapor {
         hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
         ReusableMethods.waitFor(3);
        // Driver.closeDriver();
-
         ReusableMethods.waitFor(3);
         softAssert.assertAll();
 

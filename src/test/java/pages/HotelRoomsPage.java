@@ -22,52 +22,59 @@ public class HotelRoomsPage {
 
 
     //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms
-
     @FindBy(xpath = "//a[@id='menuHotels']")
     public WebElement hotelManagementLinki;
-
-    // (//i[@class='icon-calendar'])[3]  Bu locate ile element gorulmuyor ve erisilmiyor
-    @FindBy(xpath = "//a[@href='/admin/HotelRoomAdmin']")// bu locae ile element gorulmuyor ama erisilebiliyor
+    @FindBy(xpath = "(//i[@class='icon-calendar'])[3]")
     public WebElement hotelRoomsLinki;
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement listOfUsersYazisi;
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement listOfHotelYazisi;
+    @FindBy(xpath = "//span[@class='hidden-480']")
+    public WebElement addHotelRoomButtonu;
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement createHotelRoomYazisi;
+    @FindBy(xpath = "//select[@id='IDHotel']")
+    public WebElement iDHotelDropBox;
+    @FindBy ( xpath="//textarea[@dir='ltr']")
+    public WebElement descriptionElementi;
+    @FindBy(xpath = "//button[@id='btnSubmit']")
+    public WebElement addHotelSaveButonu;
+    @FindBy(xpath = "//input[@name='Code']")
+    public WebElement hotelRoomListCodeBox;
+    @FindBy(xpath = "//input[@name='Price']")
+    public WebElement hotelRoomListPriceBox;
+    @FindBy(xpath = "//a[@class='dropdown-toggle']")
+    public WebElement managerLink;
+    @FindBy(xpath = "//i[@class='icon-key']")
+    public WebElement logOutButton;
+    @FindBy(xpath = "//a[@href='#']")
+    public List<WebElement> priceDragandDropListesi;//2 den başla
+    @FindBy(xpath = "//select[@id='IDGroupRoomType']")
+    public WebElement roomTypeElementi;
+    @FindBy(xpath = "//input[@id='IsAvailable']")
+    public WebElement approvedElementi;
+    @FindBy (xpath = "//div[text()='HotelRoom was inserted successfully']")
+    //div[@class='bootbox-body']
+    public WebElement basariliSaveYazisi;
+    @FindBy (xpath = "(//button[@type='button'])[6]")
+    public WebElement okButton;
+
 
 
     @FindBy(xpath = "//div[@class='caption']")
     public WebElement listOfHotelRoomsYazisi;
 
 
+
+
     //US_0007 Loceted
 
     //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms
 
-    @FindBy(xpath = "(//tr)[3]//td")
-    public List<WebElement> listedekiILkHotelBilgileriListesi;
-
-    @FindBy(xpath = "//input[@name='IDHotelRoom']")
-    public WebElement hotelRoomsLinkiListeIdBox;
-
-    @FindBy(xpath = "//select[@id='lkpHotels']")
-    public WebElement hotelRoomListIdHotelBox;
-
-    @FindBy(xpath = "//input[@name='Code']")
-    public WebElement hotelRoomListCodeBox;
-
-    @FindBy(xpath = "//input[@name='Name']")
-    public WebElement hotelRoomListNameBox;
-
-    @FindBy(xpath = "//input[@name='Location']")
-    public WebElement hotelRoomListLocationBox;
-
-    @FindBy(xpath = "//input[@name='Price']")
-    public WebElement hotelRoomListPriceBox;
 
     @FindBy(xpath = "//select[@id='lkpGroupRoomTypes']")
     public WebElement hotelRoomsListIdGroupTypeBox;
-
-    @FindBy(xpath = "//select[@name='IsAvailable']")
-    public WebElement hotelRoomListIsAvaibleBox;
-
-    @FindBy(xpath = "//button[@class='btn btn-sm red filter-cancel']")
-    public WebElement hotelRoomListClearButton;
 
     @FindBy(xpath = "(//a[@class='btn btn-xs default'])[1]")
     public WebElement hotelRoomListDetailButton;
@@ -75,8 +82,6 @@ public class HotelRoomsPage {
     @FindBy(xpath = "//*[@id=\"datatable_ajax\"]/thead/tr[2]/td[9]/div/button")
     public WebElement hotelRoomListSearchButton;
 
-    @FindBy(xpath = "//input[@type='checkbox']")
-    public WebElement hotelRoomListChecked;
 
 
     //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms-->(Edit Hotelroom)Details
@@ -86,14 +91,6 @@ public class HotelRoomsPage {
 
     @FindBy(xpath = "//select[@name='IDHotel']//option")
     public  List<WebElement> hotelRoomsDetailsHotelboxHotelsList;
-
-    @FindBy(xpath = "//select[@name='IDGroupRoomType']")
-    public WebElement hotelRoomsDetailsRoomTypeBox;
-
-    @FindBy(xpath = "//select[@name='IDGroupRoomType']//option")
-    public WebElement hotelRoomsDetailsRoomTypeBoxTpyeList;
-
-    //(//li[@class='credit ui-draggable ui-draggable-handle'])[1]
 
     @FindBy(xpath = "//button[@id='btnDelete']")
     public  WebElement hotelRoomsDetailsDeleteButton;
@@ -122,43 +119,6 @@ public class HotelRoomsPage {
     @FindBy(xpath = "(//button[@type='button'])[6]")
     public WebElement hotelRommsDetailsOkButton;
 
-    @FindBy(xpath = "//button[text()='×']")
-    public  WebElement xButton;
-
-
-
-    @FindBy(xpath = "//a[@class='dropdown-toggle']")
-    public WebElement managerLink;
-
-    @FindBy(xpath = "//i[@class='icon-key']")
-    public WebElement logOutButton;
-
-
-
-
-
-
-
-
-
-
-        @FindBy(xpath = "//div[@class='caption']")
-        public WebElement listOfUsersYazisi;
-
-        @FindBy(xpath = "//div[@class='caption']")
-        public WebElement listOfHotelYazisi;
-
-        @FindBy(xpath = "//span[@class='hidden-480']")
-        public WebElement addHotelRoomButtonu;
-
-        @FindBy(xpath = "//div[@class='caption']")
-        public WebElement createHotelRoomYazisi;
-
-        @FindBy(xpath = "//select[@id='IDHotel']")
-        public WebElement iDHotelDropBox;
-
-        @FindBy(xpath = "//option[text()='Select Hotel']")
-        public List<WebElement> selectHotelListesi;
 
 
     public void dataUpdate() {
@@ -183,14 +143,7 @@ public class HotelRoomsPage {
                 .click().perform();
 
 
-
-
-
     }
-
-
-
-
 
     }
 

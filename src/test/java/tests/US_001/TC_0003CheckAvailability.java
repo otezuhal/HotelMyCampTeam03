@@ -31,12 +31,12 @@ public class TC_0003CheckAvailability {
         LocalDate eklenmisLocalDate = localDate.plusDays(5);
         DateTimeFormatter duzenliDateStart = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
-        String checkInDate1 = eklenmisLocalDate.format(duzenliDateStart);
-        System.out.println(checkInDate1);
+        String checkInDate = eklenmisLocalDate.format(duzenliDateStart);
+        System.out.println(checkInDate);
 
         LocalDate eklenmisLocalDateCheckOut = localDate.plusDays(15);
-        String checkOutDate1 = eklenmisLocalDateCheckOut.format(duzenliDateStart);
-        System.out.println(checkOutDate1);
+        String checkOutDate = eklenmisLocalDateCheckOut.format(duzenliDateStart);
+        System.out.println(checkOutDate);
 
 
 
@@ -44,12 +44,12 @@ public class TC_0003CheckAvailability {
         //CheckInDate Uptade kismi
 
       mainPage.mainPageCheckInDateInput.clear();
-        mainPage.mainPageCheckInDateInput.sendKeys(checkInDate1);
+        mainPage.mainPageCheckInDateInput.sendKeys(checkInDate);
       //  mainPage.mainPageCheckInDateInputNext.click();
       //  mainPage.mainPageCheckInDateInputSecilecekGun.click();
         //CheckOutDate Uptade kismi
         mainPage.getMainPageCheckOutDateInput.clear();
-        mainPage.getMainPageCheckOutDateInput.sendKeys(checkOutDate1);
+        mainPage.getMainPageCheckOutDateInput.sendKeys(checkOutDate);
      //   mainPage.mainPageCheckInDateOutputNext.click();
       //  mainPage.mainPageCheckInDateOutputSecilecekGun.click();
         //Room box Uptade kismi
@@ -60,6 +60,13 @@ public class TC_0003CheckAvailability {
         select1.selectByVisibleText("2 Adult");
         String idHotelRoomType1=mainPage.idHotelRoomTypeBox1.getAttribute("value");
         String adultCount1=mainPage.adultCountBox1.getAttribute("value");
+        String checkInDate1=mainPage.checkInDateBox1.getAttribute("value");
+        String checkOutDate1=mainPage.checkOutDateBox1.getAttribute("value");
+        System.out.println("************************");
+
+        System.out.println(checkInDate1.replace("0",""));
+        System.out.println(checkInDate1);
+        System.out.println(checkOutDate1);
 
         mainPage.checkAvailabilityButton.click();
 
@@ -67,6 +74,8 @@ public class TC_0003CheckAvailability {
         String checkOutDate2=mainPage.checkOutDateBox2.getAttribute("value");
         String idHotelRoomType2=mainPage.idHotelRoomTypeBox2.getAttribute("value");
         String adultCount2=mainPage.adultCountBox2.getAttribute("value");
+        System.out.println(checkInDate2);
+        System.out.println(checkOutDate2);
 
 
         softAssert.assertEquals(checkInDate1,checkInDate2);
@@ -74,6 +83,7 @@ public class TC_0003CheckAvailability {
         softAssert.assertEquals(idHotelRoomType1,idHotelRoomType2);
         softAssert.assertEquals(adultCount1,adultCount2);
 
+        softAssert.assertAll();
 
 
         ////td[.='10']

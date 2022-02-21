@@ -36,7 +36,6 @@ public class TC_0002 extends TestBaseRapor {
         //LIST OF HOTELROOMS yazisini gorur
         softAssert.assertTrue(hotelRoomsPage.listOfHotelRoomsYazisi.isDisplayed());
         extentTest.pass("Liste gorunurlugu test edildi");
-        ReusableMethods.getScreenshot("RoomsLIst Gorunurluk");
         ReusableMethods.waitFor(3);
 
       //  Select select=new Select(hotelRoomsPage.managerLink);
@@ -45,6 +44,7 @@ public class TC_0002 extends TestBaseRapor {
         ReusableMethods.waitFor(3);
         Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        extentTest.info("Logout yapildi");
         softAssert.assertAll();
 
 

@@ -52,6 +52,13 @@ public class MainPage {
     @FindBy(xpath = "(//th[@class='next'])[1]")
     public WebElement mainPageCheckInDateOutputNext;
 
+    @FindBy(xpath = "//input[@id='checkin_date']")
+    public  WebElement checkInDateBox1;
+
+    @FindBy(xpath = "//input[@id='checkout_date']")
+    public  WebElement  checkOutDateBox1;
+
+
     @FindBy (xpath = "//select[@name='IDRoomType']")
     public WebElement idHotelRoomTypeBox1;
 
@@ -132,4 +139,46 @@ public class MainPage {
 
     }
 
+
+
+
+    //MainPage--> Footer
+    @FindBy(xpath = "//footer[@class='ftco-footer ftco-bg-dark ftco-section']")
+    public  WebElement mainPageFooter;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[1]")
+    public WebElement mainPageUsefulLinkBlog;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[2]")
+    public WebElement mainPageUsefulLinkRooms;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[3]")
+    public WebElement mainPageUsefulLinkAmentitiesTest;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[4]")
+    public WebElement mainPageUsefulLinkGiftCard;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[5]")
+    public WebElement mainPagePrivacyGiftCareer;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[6]")
+    public WebElement mainPagePrivacyAboutUs;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[7]")
+    public WebElement mainPagePrivacyContactUs;
+    @FindBy(xpath = "(//a[@class='py-2 d-block'])[8]")
+    public WebElement mainPagePrivacyServices;
+    @FindBy(xpath = "(//span[@class='text'])[2]")
+    public WebElement mainPageTelephoneLink;
+    @FindBy(xpath = "(//span[@class='text'])[3]")
+    public WebElement mainPageEmailLink;
+    @FindBy(xpath = "//span[@class='icon-twitter']")
+    public WebElement mainPageFooterTwitterIkon;
+    @FindBy(xpath = "(//span[@class='icon-instagram'])[2]")
+    public WebElement mainPageFooterInstagramIkon;
+    @FindBy(xpath = "(//span[@class='icon-facebook'])[2]")
+    public WebElement mainPageFooterFacebookIkon;
+    @FindBy(id = "section-counter")
+    public WebElement sectionCounterOtelBilgileriBolumu;
+
+    //mainPage-->Our Rooms
+    @FindBy(xpath = "//h2[.='Our Rooms']")
+    public WebElement mainPageOurRoomsText;
+
+    public void mainPageUrl() {
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+    }
 }

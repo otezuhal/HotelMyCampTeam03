@@ -19,7 +19,7 @@ public class TC_0004 extends TestBaseRapor {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void odaSilmeIslemitesti() throws IOException {
+    public void odaSilmeIslemiTesti() throws IOException {
         extentTest=extentReports.createTest("HotelRoom ","oda arama islemi test edildi");
         //Yonetici url ye gider
         //Sag ustteki Login butonuna tiklar
@@ -37,31 +37,23 @@ public class TC_0004 extends TestBaseRapor {
         //Sayfanin en altindaki DELETE butonuna tiklanir
         hotelRoomsPage.hotelRoomsDetailsDeleteButton.click();
         extentTest.info("Hotel delete butonuna tiklandi");
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(2);
         hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
         //BAsarili bir sekilde silme isleminin yapildigini test eder
         softAssert.assertTrue(hotelRoomsPage.basariliSilindiTestYazisi
                 .getText().contains("hotel has been deleted successfully"),"Oda silme islemi testi Failed");
        extentTest.fail("oda silme islemi failed");
-
-       //  ReusableMethods.getScreenshot("Oda silme islemi");
-      //  Driver.closeDriver();
         hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
         ReusableMethods.waitFor(3);
         actions=new Actions(Driver.getDriver());
-
-
-
-     actions.doubleClick(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
-       actions.click(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
+        actions.doubleClick(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
         actions.click(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
-
-        ReusableMethods.waitFor(3);
-
-        //BU test manueldede failed
-
-     actions=new Actions(Driver.getDriver());
+        actions.click(hotelRoomsPage.hotelRommsDetailsOkButton).perform();
+        extentTest.info("hotelRommsDetailsOkButton uzun ugraslar sonucu tiklanabildi");
+        ReusableMethods.waitFor(2);
+        actions=new Actions(Driver.getDriver());
         actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        extentTest.info("Logout yapildi");
         softAssert.assertAll();
 
 

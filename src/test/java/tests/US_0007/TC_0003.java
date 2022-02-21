@@ -1,5 +1,6 @@
 package tests.US_0007;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -23,7 +24,7 @@ public class TC_0003 extends TestBaseRapor {
 
     @Test
     public void odaAramaTesti() throws IOException {
-        extentTest=extentReports.createTest("HotelRoom ","oda arama islemi test edildi");
+        extentTest = extentReports.createTest("HotelRoom ", "oda arama islemi test edildi");
         //Yonetici url ye gider
         //Sag ustteki Login butonuna tiklar
         //Yonetici olarak giris yapar
@@ -34,33 +35,36 @@ public class TC_0003 extends TestBaseRapor {
         //Hotel Rooms butonunu tiklar
         hotelRoomsPage.hotelRoomsLinki.click();
         extentTest.info("Hotel Rooms linkine tiklandi");
-        //Arama  otel bilgileri girilir
-        hotelRoomsPage.listeEkranindaHotelRoomArama();
-        String title=Driver.getDriver().getTitle();
-        //Search butonuna tiklanir
+        //hotel Room search butonu erisilebilirligi test edilir
         Assert.assertTrue(hotelRoomsPage.hotelRoomListSearchButton.isEnabled());
-        extentTest.info("hotel Room search butonu erisilebilirligi test edildi");
+        extentTest.pass("hotel Room search butonu erisilebilirligi test edildi");
+        //istenen ozellikteki oda bilgisi girilir
+        Select select = new Select(hotelRoomsPage.hotelRoomsListIdGroupTypeBox);
+        select.selectByValue("6");
+        //Search butonuna tiklanir
         hotelRoomsPage.hotelRoomListSearchButton.click();
-        //Aranan odanin bilgileri ekranina gidilmeli
-        softAssert.assertFalse(Driver.getDriver().getTitle().equals(title),"Aranan odaya gecis testi Failed");
-        extentTest.fail("hotel Rooms search butonu erisilmiyor.");
-        ReusableMethods.getScreenshot("hotelRoomsSearchButonClicken");
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(4);
+        searchButtonTest();
+        extentTest.pass("Oda arama testi yapildi");
+        ReusableMethods.waitFor(2);
 
-
-
-      //  Driver.closeDriver();
-        ReusableMethods.waitFor(3);
-
-        // Bu test manuelde failed
-        Actions actions=new Actions(Driver.getDriver());
-        actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        Actions actions = new Actions(Driver.getDriver());
+         actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
+        extentTest.info("Logout yapildi");
         softAssert.assertAll();
 
     }
 
+    public void searchButtonTest() {
+        for (int i = 3; i < 9; i++) {
+            String dinamikRoomTypeXpath = "//tr["+i+"]/td[7]";
+            WebElement dinamikRoomTypeElement = Driver.getDriver().findElement(By.xpath(dinamikRoomTypeXpath));
+            String actualResult = dinamikRoomTypeElement.getText();
+            String expectedresult = "Single";
+            softAssert.assertEquals(actualResult, expectedresult);
+
+        }
 
 
-
-
+    }
 }

@@ -1,5 +1,7 @@
 package tests.US_0007;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -41,22 +43,21 @@ public class TC_0005 extends TestBaseRapor {
         hotelRoomsPage.hotelRoomsDetailsSaveButton.click();
         extentTest.info("save butonuna tiklandi");
         //HotelRoom was updated successfully yazisi gorulur
-        softAssert.assertTrue(hotelRoomsPage.hotelRoomsDetailsSuccefullWort.isDisplayed(),"HotelRoom was updated successfully gorulebilir degil");
-        extentTest.fail("Oda bilgilerinin basarili bir sekild degismesi testi failed");
-       String actualResult=hotelRoomsPage.hotelRoomsDetailsSuccessfullyUpdateWort.getText();
-        System.out.println(actualResult);
-       String expectedresult="HotelRoom was updated successfully";
-       softAssert.assertTrue(actualResult.contains(expectedresult),"actualResult HotelRoom was updated successfully icermiyor");
-        extentTest.fail("Oda bilgilerinin basarili bir sekild degismesi testi failed");
-       //normalde bu yazi goruluyor ama otomasyonda failed cikiyor
+        String actualSaveText= hotelRoomsPage.hotelRoomsDetailsSuccefullWort.getAttribute("innerText");
+        String expectedSaveText="HotelRoom was updated successfully";
+        softAssert.assertTrue(actualSaveText.equals(expectedSaveText));
+        extentTest.pass("Oda bilgilerinin basarili bir sekilde degistirildi yazisi goruldu");
         ReusableMethods.getScreenshot("Oda bilgileri Update");
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(2);
         hotelRoomsPage.hotelRoomsDetailsDeleteButtondanSonrakiOkButton.click();
-        ReusableMethods.waitFor(3);
-       // Driver.closeDriver();
-        ReusableMethods.waitFor(3);
+        extentTest.info("OK BUTONU CLICK LENDI");
+        ReusableMethods.waitFor(2);
+        extentTest.info("Logout yapildi");
         softAssert.assertAll();
+       // Driver.closeDriver();
 
 
     }
-}
+
+
+    }

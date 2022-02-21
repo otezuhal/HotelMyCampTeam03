@@ -33,19 +33,15 @@ public class TC_0001 extends TestBaseRapor {
         //Hotel Rooms butonu gorulebilir olmalidir
         ReusableMethods.waitFor(3);
       softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isDisplayed(),"hotelRooms butonu gorulebilirlik testi Failed");
-      ReusableMethods.getScreenshot("roomButtonTEst");
      extentTest.pass("hotelRooms linkinin gorulebilirligi test edildi");
-      //normalde bu Webelment goruluyor ama otomasyonda failed cikiyor
         //Hotel Rooms butonu erisileblir olmalidir
        softAssert.assertTrue(hotelRoomsPage.hotelRoomsLinki.isEnabled(),"hotelRomms Butonu erisilebilirligi Testi Failed");
        extentTest.pass("hotelRomms Butonu erisilebilirligi test edildi");
        ReusableMethods.waitFor(3);
-
-      //  Driver.closeDriver();
         ReusableMethods.waitFor(3);
         Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(hotelRoomsPage.managerLink).click(hotelRoomsPage.logOutButton).perform();
-
+        extentTest.info("Logout yapildi");
         softAssert.assertAll();
     }
 

@@ -61,7 +61,7 @@ public class HotelRoomsPage {
     public WebElement hotelRoomListPriceBox;
 
     @FindBy(xpath = "//select[@id='lkpGroupRoomTypes']")
-    public WebElement hotelRoomsListIdGrouoTypeBox;
+    public WebElement hotelRoomsListIdGroupTypeBox;
 
     @FindBy(xpath = "//select[@name='IsAvailable']")
     public WebElement hotelRoomListIsAvaibleBox;
@@ -72,7 +72,7 @@ public class HotelRoomsPage {
     @FindBy(xpath = "(//a[@class='btn btn-xs default'])[1]")
     public WebElement hotelRoomListDetailButton;
 
-    @FindBy(xpath = "//select[@name='IsAvailable']")
+    @FindBy(xpath = "//*[@id=\"datatable_ajax\"]/thead/tr[2]/td[9]/div/button")
     public WebElement hotelRoomListSearchButton;
 
     @FindBy(xpath = "//input[@type='checkbox']")
@@ -116,11 +116,7 @@ public class HotelRoomsPage {
     @FindBy(xpath = "(//button)[4]")
     public WebElement hotelRoomsDetailsSaveButton;
 
-    @FindBy(xpath = "//div[@class='bootbox-body']")//Bu locate ilede isDisplay false dondu
-    public WebElement hotelRoomsDetailsSuccessfullyUpdateWort;
-    // div[.='HotelRoom was updated successfully']  bu locate ile de olmadi
-
-    @FindBy(className = "bootbox-body")// bu locate ilede isDisplay false dondu
+    @FindBy(className = "bootbox-body")
     public  WebElement hotelRoomsDetailsSuccefullWort;
 
     @FindBy(xpath = "(//button[@type='button'])[6]")
@@ -145,43 +141,6 @@ public class HotelRoomsPage {
 
 
 
-
-
-
-
-
-
-
-
-
-
-    public void listeEkranindaHotelRoomArama() {
-
-        hotelRoomsLinkiListeIdBox.sendKeys(listedekiILkHotelBilgileriListesi.get(0).getText());
-        hotelRoomListIdHotelBox.sendKeys(listedekiILkHotelBilgileriListesi.get(1).getText());
-        hotelRoomListCodeBox.sendKeys(listedekiILkHotelBilgileriListesi.get(2).getText());
-        hotelRoomListNameBox.sendKeys(listedekiILkHotelBilgileriListesi.get(3).getText());
-        hotelRoomListLocationBox.sendKeys(listedekiILkHotelBilgileriListesi.get(4).getText());
-        hotelRoomListPriceBox.sendKeys(listedekiILkHotelBilgileriListesi.get(5).getText());
-        hotelRoomsListIdGrouoTypeBox.sendKeys(listedekiILkHotelBilgileriListesi.get(6).getText());
-        Select select = new Select(hotelRoomListIsAvaibleBox);
-        if (hotelRoomListChecked.isSelected()) {
-            select.selectByVisibleText("True");
-            hotelRoomListSearchButton.click();
-        } else {
-            select.selectByVisibleText("False");
-            hotelRoomListSearchButton.click();
-
-
-        }
-    }
-
-        //  -->hotelManagement-->HotelRooms--> List Of Hotel Rooms
-        // @FindBy(xpath = "//a[@id='menuHotels']")
-        // public WebElement hotelManagementLinki;
-
-        // @FindBy(xpath = "(//i[@class='icon-calendar'])[3]")
-        // public WebElement hotelRoomsLinki;
 
         @FindBy(xpath = "//div[@class='caption']")
         public WebElement listOfUsersYazisi;
@@ -227,6 +186,13 @@ public class HotelRoomsPage {
 
 
 
-    }}
+    }
+
+
+
+
+
+    }
+
 
 

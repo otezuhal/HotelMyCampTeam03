@@ -11,38 +11,39 @@ import java.time.Duration;
 
 public class Driver {
 
-    private Driver() {
+    private  Driver(){
 
     }
 
-    private static WebDriver driver;
+    private static WebDriver  driver;
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(){
 
 
-        if (driver == null) {   // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulaca
-            // diger kullanimlarda new devreye girmeyecek
-            switch (ConfigReader.getProperty("browser")) {
+
+        if(driver==null){   // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulaca
+                            // diger kullanimlarda new devreye girmeyecek
+            switch (ConfigReader.getProperty("browser")){
 
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver=new ChromeDriver();
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driver=new FirefoxDriver();
                     break;
                 case "opera":
                     WebDriverManager.operadriver().setup();
-                    driver = new OperaDriver();
+                    driver=new OperaDriver();
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
+                    driver=new SafariDriver();
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver=new ChromeDriver();
             }
 
         }
@@ -52,10 +53,13 @@ public class Driver {
         return driver;
     }
 
-    public static void closeDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+    public static void closeDriver(){
+        if (driver!=null){
+          //  driver.quit();
+            driver=null;
         }
+
     }
+
+
 }

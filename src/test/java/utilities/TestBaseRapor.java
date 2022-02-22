@@ -30,7 +30,7 @@ public abstract class TestBaseRapor {
         extentReports.setSystemInfo("Enviroment","QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
         extentReports.setSystemInfo("Automation Engineer", "Team_03");
-        extentHtmlReporter.config().setDocumentTitle("US0002");
+        extentHtmlReporter.config().setDocumentTitle("US0005");
         extentHtmlReporter.config().setReportName("HotelMyCamp.com Test Reports");
     }
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
@@ -44,11 +44,10 @@ public abstract class TestBaseRapor {
         } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
             extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
         }
-    //    Driver.closeDriver();
+       // Driver.closeDriver();
     }
     // Raporlandırmayı sonlandırmak icin
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
         extentReports.flush();
-    }
-}
+    }}

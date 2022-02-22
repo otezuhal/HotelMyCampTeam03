@@ -18,6 +18,7 @@ public class HotelRoomsPage {
     public HotelRoomsPage() {
 
         PageFactory.initElements(Driver.getDriver(), this);
+
     }
 
 
@@ -145,7 +146,6 @@ public class HotelRoomsPage {
 
     }
 
-    }
-
+}
 
 

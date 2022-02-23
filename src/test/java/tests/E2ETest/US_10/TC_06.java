@@ -60,7 +60,7 @@ public class TC_06 extends TestBaseRapor {
         }
         extentTest.pass("Yapilan tum reservasyonlarin yanindaki detail linkine tiklayarak ayrintilarin varligi test edildi ve yazdirildi");
         softAssert.assertAll();
-        Driver.closeDriver();
+        Driver.getDriver().close();
 
 
     }

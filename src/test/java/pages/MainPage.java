@@ -21,6 +21,7 @@ public class MainPage {
 
     JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
     Actions actions = new Actions(Driver.getDriver());
+
     @FindBy(xpath = "//a[text()='Log in']")
     public WebElement firstLoginLinki;
 

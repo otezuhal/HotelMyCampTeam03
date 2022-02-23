@@ -2,7 +2,7 @@
 <suite name="belirli classlar">
     <test name="classlar">
         <classes>
-          <!--  <class name="tests.US_01.TC_0001MainPageNavbarButtonTest"></class>
+            <class name="tests.US_01.TC_0001MainPageNavbarButtonTest"></class>
             <class name="tests.US_01.TC_0002NavBarButtonClickAndSwichTest"></class>
             <class name="tests.US_01.TC_0003CheckAvailability"></class>
             <class name="tests.US_01.TC_0004WelcomeToOurHotelIsDisplayedTest"></class>
@@ -16,7 +16,7 @@
             <class name="tests.US_02.TC0003"></class>
             <class name="tests.US_02.TC0004"></class>
             <class name="tests.US_02.TC0005"></class>
-            <class name="tests.US_03.NegatifTest"></class>-->
+            <class name="tests.US_03.NegatifTest"></class>
             <class name="tests.US_03.PozitifTest"></class>
             <class name="tests.US_04.TC0001"></class>
             <class name="tests.US_04.TC0002"></class>
@@ -36,6 +36,7 @@
             <class name="tests.US_07.TC_0003"></class>
             <class name="tests.US_07.TC_0004"></class>
             <class name="tests.US_07.TC_0005"></class>
+            <class name="tests.US_08.TC01"></class>
             <class name="tests.US_08.TC02"></class>
             <class name="tests.US_08.TC03"></class>
             <class name="tests.US_08.TC04"></class>

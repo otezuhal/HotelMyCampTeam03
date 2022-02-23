@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SmokeTest">
+    <test name="SmokeTests">
+      <classes>
+          <class name="tests.SmokeTest.US_02.TC0001"></class>
+          <class name="tests.SmokeTest.US_02.TC0002"></class>
+          <class name="tests.SmokeTest.US_02.TC0003"></class>
+          <class name="tests.SmokeTest.US_02.TC0004"></class>
+          <class name="tests.SmokeTest.US_02.TC0005"></class>
+          <class name="tests.SmokeTest.US_03.NegatifTest"></class>
+          <class name="tests.SmokeTest.US_03.PozitifTest"></class>
+
+      </classes>
+    </test>
+</suite>

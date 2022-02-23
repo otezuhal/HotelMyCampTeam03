@@ -130,9 +130,9 @@ public class RoomReservationsPage {
     public void logOut(){
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(managerDropDownButton).perform();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(3);
         logOutButtonn.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
     }
 
     //After login ===> HotelManagement Button

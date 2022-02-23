@@ -45,8 +45,10 @@ public class UserPage {
     public WebElement ReservationsLink;
 
     //Profil Page---> Single Link
-    @FindBy(xpath = "/html/body/section[1]/div/div/div[2]/div[2]/div/li[1]/a")
+    @FindBy(xpath = "//a[@href='/Rooms/6']")
     public WebElement SingleLink;
+      //   /html/body/section[1]/div/div/div[2]/div[2]/div/li[1]/a
+    //a[@href='/Rooms/6']
 
     //Profil Page---> double Link
     @FindBy(xpath = "//a[@href='/Rooms/7']")

@@ -30,7 +30,7 @@ public class TC0001 extends TestBaseRapor {
         String expectedTitle="Hotelmycamp - Log in";
         softAssert.assertEquals(actuelTitle,expectedTitle);
         extentTest.info("ilk login linkinin erisilebilir oldugu test edildi");
-        ReusableMethods.getScreenshot("ilkLoginLink");
+      //  ReusableMethods.getScreenshot("ilkLoginLink");
         softAssert.assertAll();
 
 

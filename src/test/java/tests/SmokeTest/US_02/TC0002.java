@@ -28,7 +28,7 @@ public class TC0002 extends TestBaseRapor {
         mainpage.firstUserNameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
         ReusableMethods.waitFor(2);
         softAssert.assertFalse(mainpage.firstUserNameBox.toString().isEmpty());
-        ReusableMethods.getScreenshot("UsernameBox");
+     //   ReusableMethods.getScreenshot("UsernameBox");
         extentTest.info("Username  bolumune veri girisi yapilabildigi test edildi");
         ReusableMethods.waitFor(2);
         softAssert.assertAll();
